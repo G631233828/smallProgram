@@ -1,0 +1,4 @@
+<!--pages/home/home.wxml-->
+<text class="title">home page</text>
+<button size="mini">提交</button>
+<image src="https://www.w3school.com.cn/ui2019/bg-retina.png"></image>
