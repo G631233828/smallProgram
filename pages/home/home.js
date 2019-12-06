@@ -3,64 +3,105 @@ Page({
 
   /**
    * 页面的初始数据
+   * data 中的name 对于了wxml中{{name}}的数据
    */
   data: {
-
+    name: "jack",
+    students: [{
+      name: "fliay",
+      age: 21
+    }, {
+      name: "jack",
+      age: 22
+    }],
+    title:['西瓜','苹果','香蕉','菠萝'],
+    counter: 0,
+    num:0
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  //对应在wxml中绑定的事件
+  handleBtnClient() {
+    //界面不刷新
+    // console.log("click"),
+    //this.data.counter ++,
+    // console.log(this.data.counter)
+    this.setData({
+      counter: this.data.counter + 1,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  handleMinusClient() {
+    //对当前的data数据进行赋值
+    this.setData({
+      counter: this.data.counter - 1,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  isclick() {
+    console.log("被点击了")
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  touchstart() {
+    console.log("touchstart")
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  touchmove() {
+    console.log("touchmove")
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  touchend() {
+    console.log("touchend")
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  tag() {
+    console.log("tag")
   },
+  longpress() {
+    console.log("longpress")
+  },
+  outter(event) {
+    console.log(event)
+  },
+  inner(event) {
+    console.log(event)
+  },
+  itemClick(event){
+    console.log(event)
+  },
+  //------事件冒泡与事件捕获--------------
+  capview1(){
+    console.log("capview1")
+  },
+  view1() {
+    console.log("view1")
+  },
+  capview2() {
+    console.log("capview2")
+  },
+  view2() {
+    console.log("view2")
+  },
+  capview3() {
+    console.log("capview3")
+  },
+  view3() {
+    console.log("view3")
+  },
+  add(){
+    this.setData({
+      num: this.data.num+1
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    })
+  },
+  itemclick(event){
+    console.log(event)
+  },
+//给组件传值
+myseladd(){
+  //通过界面设置的id或者class来获取组件
+  const mysel = this.selectComponent("#sel-id")
+  //通过setData来给组件内传值,不建议使用
+  // mysel.setData({
+  //   num: mysel.data.num +1
+  // })
+  //通过方法来给组件内传值
+  mysel.myseladd(1)
+}
 
-  }
+
 })

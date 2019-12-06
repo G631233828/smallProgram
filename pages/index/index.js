@@ -1,54 +1,54 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp()//获取全局的属性
+
+
+//输出全局的属性
+console.log(app.globalData.age)
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+   list:[]
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+
+  //获取用户信息
+  getUserInfo2:function(event){
+   console.log(event)
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
+  //1.监听页面的生命周期函数
+  onLoad:function(){
+    wx.request({
+      url: 'https://www.imooc.com/course/ajaxlist',
+      success:(res)=>{
+        const data = res.data.list
+        console.log(res)
+        //将从接口中获取的数据传入list中
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+          list: data
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
     })
-  }
+  },
+  // onLoad: function(){
+  //   wx.request({
+  //     url: 'https://www.imooc.com/course/ajaxlist',
+  //     success:function(res){
+  //       const data = res.data.list
+  //       console.log(res)
+  //       _this.setData({
+  //         list: data
+  //       })
+  //     }
+  //   })
+  // },
+
+  //监听界面滚动
+  onPageScroll: function(obj){
+    console.log(obj)
+  },
+  //页面滚动到底部
+  onReachBottom: function(){
+  console.log("页面滚动到底部")
+}
+
 })

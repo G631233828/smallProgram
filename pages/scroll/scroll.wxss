@@ -1,0 +1,22 @@
+/* pages/scroll/scroll.wxss */
+.container1{
+  background: purple;
+  white-space: nowrap;/*不要换行*/
+}
+.item1{
+  width: 100px;
+  height: 100px;
+  background: red;
+  margin: 10px;
+  display: inline-block;/*将对象呈递为内联对象，但是对象的内容作为块对象呈递*/
+}
+
+.container2{
+  background: orange;
+  height: 200px;
+}
+.item2{
+  height: 100px;
+  background: blue;
+  margin: 10px;
+}

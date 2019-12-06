@@ -1,0 +1,5 @@
+<!--components/mycomponent/mycomponent.wxml-->
+
+<!--通过在js中properties配置之后可以实现动态配置-->
+<view class="title">{{title}}</view>
+<view class="content contentclass">自定义组件内容</view>

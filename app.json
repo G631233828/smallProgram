@@ -1,14 +1,41 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/wxs/wxs",
+    "pages/wxml/wxml",
+    "pages/wxss/wxss",
+    "pages/scroll/scroll",
+    "pages/input/input",
+    "pages/image/image",
+    "pages/view/view",
+    "pages/button/button",
+    "pages/text/text",
     "pages/index/index",
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#123456",
+    "navigationBarTitleText": "中赤信息技术",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "orange"
+  },
+  "tabBar": {
+    "selectedColor": "#123456",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "assets/tabBar/home.png",
+        "selectedIconPath": "assets/tabBar/home_active.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "分类",
+        "iconPath": "assets/tabBar/category.png",
+        "selectedIconPath": "assets/tabBar/category.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

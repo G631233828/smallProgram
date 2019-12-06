@@ -3,3 +3,59 @@
   color: red;
   font-size: 30px;
 }
+.box{
+  width: 300rpx;
+  height: 300rpx;
+  background: red;
+}
+
+.outter{
+  margin-top: 20px;
+  width: 400rpx;
+  height: 400rpx;
+  background: red;
+}
+
+.inner{
+  margin-top: 20px;
+  width: 200rpx;
+  height: 200rpx;
+  background: yellow;
+}
+
+.container2{
+  display: flex;
+}
+.item{
+  flex:1;
+  text-align: center;
+}
+
+.view1{
+  width: 600rpx;
+  height: 600rpx;
+  background: green;
+}
+
+.view2{
+  width: 400rpx;
+  height: 400rpx;
+  background:palevioletred;
+}
+
+.view3{
+  width: 200rpx;
+  height: 200rpx;
+  background:burlywood;
+}
+
+/*给自定义组件中设置样式，设置的样式需要在这里定义好*/
+.red{
+  color: red;
+}
+.blue{
+  color:blue;
+}
+.green{
+  color: green;
+}

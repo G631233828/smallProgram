@@ -1,0 +1,15 @@
+<!--pages/view/view.wxml-->
+<!--1.view的基本使用-->
+<view class="box1">
+  <text>你好</text>
+  <button size="mini">按钮</button>
+</view>
+<view>hello</view>
+<!--2.hover-class-->
+<view class="box2" hover-class="box2-hover" hover-stay-time="200">你好2</view>
+
+<!--3.hover-stop-propagation 防止多层嵌套捕获事件-->
+<view class="box3" hover-class="box3-hover"> box3
+  <view class="box4" hover-class="box4-hover" hover-stop-propagation="true">box4</view>
+
+</view>

@@ -1,0 +1,18 @@
+<!--pages/image/image.wxml-->
+<!-- 1.image的基本使用
+1.image组件可以写成单标签，也可以写成双标签
+    2.image组件默认有自己的大小 320*240
+    3.image组件是一个行内块级元素（inline-block）
+-->
+<image  />
+<text>hello</text>
+<!--2.本地图片/远程图片-->
+<image src="/assets/images/image1.jpg"></image>
+<image src="https://m.baidu.com/static/index/plus/plus_logo_web.png"></image>
+<!--3.显示相册中的图片-->
+<button bindtap="choosePhones">从本地选取照片</button>
+<image src="{{imgUrl}}"></image>
+<!--4.bindload 监听图片加载完成 lazy-load 设置图片懒加载-->
+<image src="https://m.baidu.com/static/index/plus/plus_logo_web.png" bindload="loadImage" lazy-load="true"></image>
+<!--5.show-menu-by-longgress 长安图片出现识别小程序码-->
+<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575283368054&di=dfa95a267f995dbd51ce3e52c0fbad1c&imgtype=jpg&src=http%3A%2F%2Fp2.ssl.cdn.btime.com%2Ft01bb685fbaf06d2784.jpg%3Fsize%3D395x395" show-menu-by-longpress></image>

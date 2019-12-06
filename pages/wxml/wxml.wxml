@@ -1,0 +1,56 @@
+<!--pages/wxml/wxml.wxml-->
+<include src="/pages/public/head/head.wxml"/>
+<view>{{message}}</view>
+<view>{{firstName}} {{lastName}}</view>
+<view>{{firstName+" "+ lastName}}</view>
+<view>{{age>=18?"成年":"未成年"}}</view>
+<view>{{nowTime}}</view>
+
+<button size="mini" bindtap="changeColor">切换颜色</button>
+<text class="box {{isActive?'active':''}}">今天天气不错</text>
+
+<!--条件判断-->
+<view>----------条件判断 wx:if wx:elif wx:else----------</view>
+<view wx:if="{{show}}">今天天气不错</view><button size="mini" bindtap="changeshow">{{showbt}}</button>
+
+<!--wx:elif/wx:else-->
+<view wx:if="{{score>=90}}">优秀</view>
+<view wx:elif="{{score>=80}}">良好</view>
+<view wx:elif="{{score>=60}}">一般</view>
+<view wx:else="{{score<60}}">需努力</view>
+
+<!--渲染列表-->
+<view>----------渲染列表 wx:for----------</view>
+<!--wx:for-->
+<!--1.1 遍历数组、字符串、数字-->
+<view wx:for="{{['aa','bb','cc']}}" wx:key="{{item}}">{{index+1 +":"+ item}}</view>
+
+<!-- block -->
+<view>----------使用block 用来包裹元素的标签----------</view>
+<block wx:for="{{3}}">
+<view>今天天气不错</view>
+</block>
+
+<!--item index 别名  适用于多层遍历-->
+<view>给item index 起别名</view>
+<view wx:for="{{movies}}" wx:for-item="movie" wx:for-index="i">{{i+":"+movie}}</view>
+
+<!--template 模板
+  为了进行代码的复用可以使用模板，模板中的内容在没有被使用之前是不会被渲染的
+-->
+<view>----------模板----------</view>
+<!-- <template name="tp1">
+  <button>{{tpk1}}</button>
+  <view>{{tpk2}}</view>
+</template> -->
+<!--使用import 导入template 
+    不能进行递归导入-->
+<import src="/wxml/template.wxml"/>
+
+<!--使用上面的模板   data 中传入key value 来给模板中动态设置值-->
+<template is="tp1" data="{{tpk1:'按钮',tpk2:'今天天气不错'}}"/>
+
+<!--使用include将公共页面进行导入， include是可以进行循环导入的
+    include 不能导入模板
+-->
+<include src="/pages/public/buttom/buttom.wxml"/>

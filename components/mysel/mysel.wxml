@@ -1,0 +1,2 @@
+<!--components/mysel/mysel.wxml-->
+<view>组件内计数器{{num}}</view>

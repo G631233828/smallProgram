@@ -1,4 +1,96 @@
 <!--pages/home/home.wxml-->
 <text class="title">home page</text>
 <button size="mini">提交</button>
-<image src="https://www.w3school.com.cn/ui2019/bg-retina.png"></image>
+<!-- 1.小程序数据绑定 ： {{}}-->
+<view>1.小程序数据绑定：hello {{name}}</view>
+<!--2. 列表展示： wx:for 循环遍历-->
+<view>2.列表展示：</view>
+<view wx:for="{{students}}">{{item.name}}-{{item.age}}</view>
+<!--3.事件监听  改变data-->
+<view>当前计数：{{counter}}</view>
+<!--bindtap 绑定事件，绑定的事件在js中定义-->
+<button size="mini" bindtap="handleBtnClient">+</button>
+<button size="mini" bindtap="handleMinusClient">-</button>
+
+<!--事件处理-->
+<button bindtap="isclick">按钮</button>
+<button bind:tap="isclick">按钮</button>
+<button catch:tap="isclick">按钮</button>
+
+<!--常见的一些事件-->
+<view class="box" bind:touchstart="touchstart" bind:touchmove="touchmove" bind:touchend="touchend" bind:tag="tag" bind:longpress="longpress">
+</view>
+
+<!--事件的綁定-->
+<view class="outter" id="outter" bindtap="outter"> 外层
+  <view class="inner" id="inner" bindtap="inner">内层
+  </view>
+</view>
+
+<!--事件的传递  data-index="{{index}}" data-item="{{item}}"-->
+<view class="container2">
+  <block wx:for="{{title}}" wx:key="{{index}}">
+    <view class="item" bindtap="itemClick" data-index="{{index}}" data-item="{{item}}">{{item}}</view>
+  </block>
+</view>
+
+<!--事件冒泡与事件捕获 catch 和bind的区别-->
+<!--bind 会一层一层的传递-->
+<!--catch 阻止事件的进一步传递-->
+<view class="view1" capture-bind:tap="capview1" bindtap="view1">
+  <view class="view2" capture-bind:tap="capview2" bindtap="view2">
+    <view class="view3" capture-bind:tap="capview3" bindtap="view3">
+  </view>
+  </view>
+</view>
+<view style="margin-top:20px;" class="view1" capture-catch:tap="capview1" bindtap="view1">
+  <view class="view2" capture-catch:tap="capview2" bindtap="view2">
+    <view class="view3" capture-catch:tap="capview3" bindtap="view3">
+  </view>
+  </view>
+</view>
+
+<!--使用自定义组件  组件内的样式不会对外面造成影响-->
+<mycomponent title="aaa" contentclass="red"></mycomponent>
+<mycomponent title="bbb" contentclass="blue"></mycomponent>
+<mycomponent contentclass="green" ></mycomponent>
+
+<!--自定义组件中事件-->
+<view>当前值：{{num}}</view>
+<!--在evnet 组件中通过组件 中配置的increment来监听返回结果-->
+<myevent bind:increment="add"/>
+
+
+<!--模拟一个菜单栏  在wx-tab-control组建中 进行了配置
+  1.在wx-tab-control.wxml 中配置了动态生成view的菜单列表
+  2.在wx-tab-control.js 中的properties 配置了titles数组用于从调用组件的页面获取数据
+ -->
+<wxtabcontrol titles="{{['衣服','裤子','鞋子']}}" bind:itemclick="itemclick"/>
+
+
+<!--给组件内的对象传值-->
+<button size="mini"  bindtap="myseladd">给组件传值按钮</button>
+<mysel class="sel-class" id ="sel-id"/>
+
+
+<!--可插槽试组件  单个插槽-->
+<myslot>
+<button>组件中间插入按钮</button>
+</myslot>
+
+
+<!--多个插槽的使用-->
+<!--
+  1.给每一个插槽起一个名字 设置插槽的name属性
+  2.必须在Component对象中添加一个选项：
+  options: {
+  multipleSlots:true
+  },
+
+-->
+<myslotmore>
+<button slot="slot2">多插槽组件1</button>
+<button slot="slot1">多插槽组件2</button>
+<button slot="slot3">多插槽组件3</button>
+<button >多插槽组件3</button>
+</myslotmore>

@@ -1,0 +1,9 @@
+<!--components/wx-tab-control/wx-tab-control.wxml-->
+<!--js中可以通过data-index="{{index}}" 来获取传递过来的参数-->
+<view class="tab-control">
+<block wx:for="{{titles}}" wx:key="{{index}}">
+<view class="tab-item {{currentIndex == index?'active':''}}" data-index="{{index}}" bindtap="itemClick">
+<text>{{item}}</text>
+</view>
+</block>
+</view>

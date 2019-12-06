@@ -1,0 +1,15 @@
+<!--pages/input/input.wxml-->
+<!--1.input的基本使用-->
+<input></input>
+<!--2.value:input中的默认值-->
+<input value="你好"></input>
+<!--3.type 决定键盘类型（英文，字母，符号，数字，身份证）-->
+<input type="number"></input>
+<!--4.password-->
+<input password></input>
+<!--5.placeholder 占位文字-->
+<input placeholder="请输入内容"></input>
+<!--6.confoirm-type 设置return按钮显示文字-->
+<input confoirm-type="提交"></input>
+<!--7.input 绑定事件-->
+<input bindblur="inputing"></input>

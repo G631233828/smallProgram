@@ -1,0 +1,12 @@
+var message = "今天天气不错";
+var date = "2019-12-4";
+
+var sum = function(num1, num2) {
+  return num1 + num2;
+}
+
+module.exports = {
+  message: message,
+  date: date,
+  sum: sum
+}

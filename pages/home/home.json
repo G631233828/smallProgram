@@ -1,3 +1,11 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "mycomponent":"/components/mycomponent/mycomponent",
+    "myevent": "/components/myevent/myevent",
+    "wxtabcontrol": "/components/wx-tab-control/wx-tab-control",
+    "mysel": "/components/mysel/mysel",
+    "myslot": "/components/myslot/myslot",
+    "myslotmore": "/components/myslotmore/myslotmore"
+  },
+  "enablePullDownRefresh": true 
 }

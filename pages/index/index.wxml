@@ -10,4 +10,14 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <view>
+
+  <button size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo2">获取用户信息</button>
+
+<open-data type="userAvatarUrl"></open-data>
+
+
+
+  </view>
+  <view wx:for="{{list}}">{{item.name}}</view>
 </view>

@@ -1,6 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
+    console.log("小程序初始化")
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -19,6 +20,7 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
+              console.log(res)
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
 
@@ -33,7 +35,20 @@ App({
       }
     })
   },
+  onShow: function(){
+    console.log("界面显示出来之后加载函数")
+
+  },
+  onHide:function(){
+    console.log("小程序关闭的时候触发")
+  },
+  onError:function(){
+    console.log("当小程序发生错误")
+  },
+
+  //全局数据
   globalData: {
-    userInfo: null
+    userInfo: null,
+    age:20
   }
 })
